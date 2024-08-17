@@ -1,0 +1,14 @@
+.myInput{
+    appearance: none;
+    padding: 5px 10px;
+    outline: none;
+    background-color: #60abab;
+    color: aliceblue;
+    font-weight: 500;
+    font-size: 20px;
+    border-radius: 20px;
+    border: none;
+    &::placeholder{
+        color: aliceblue;
+    }
+}

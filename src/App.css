@@ -1,0 +1,206 @@
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.App {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.currentField {
+  background-color: #60abab;
+  width: 100%;
+  height: 60vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: aliceblue;
+  padding: 10px;
+  padding-top: 25px;
+}
+.currentField h1 {
+  position: relative;
+  font-size: 4rem;
+}
+.currentField h2.location {
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: #eae8f6;
+  letter-spacing: 1.1px;
+  line-height: 0.5;
+}
+.currentField h3.lastUpdated {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+.currentField h3.condition {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #eae8f6;
+  font-size: 1.2rem;
+}
+
+.inputForm {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  background-color: #bde0fe;
+  flex: 40% 1 1;
+  min-height: 45vh;
+  padding: 15px;
+  transition: 0.5s ease-out all;
+}
+.inputForm h3 {
+  color: #044f71;
+  text-align: center;
+}
+.inputForm .queryInput {
+  flex: 0 1 100%;
+  margin-left: auto;
+}
+
+table {
+  display: block;
+}
+table tbody {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+table tr {
+  padding: 5px;
+  display: flex;
+}
+table tr td {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+
+table.currentDetails {
+  flex: 59.99% 0 0;
+  max-width: 60%;
+}
+table.currentDetails tr {
+  background-color: #e4f3ff;
+}
+table.currentDetails tr:nth-child(odd) {
+  background-color: #a8dadc;
+}
+table.currentDetails tr td {
+  flex: 50% 0 0;
+  color: #044f71;
+  font-weight: 500;
+}
+table.currentDetails tr.hourlyData {
+  flex: auto 1 1;
+  display: flex;
+  justify-content: space-between;
+  overflow-x: auto;
+  max-height: 150px;
+  gap: 5px;
+}
+table.currentDetails tr.hourlyData td {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 5px;
+  flex-direction: column;
+  font-size: 13px;
+  flex: 1 0 40px;
+  margin-right: 20px;
+}
+table.currentDetails tr.hourlyData td span.cond {
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+table.currentDetails tr.hourlyData::-webkit-scrollbar, table.currentDetails tr.hourlyData::-webkit-scrollbar-track, table.currentDetails tr.hourlyData::-webkit-scrollbar-button, table.currentDetails tr.hourlyData::-webkit-scrollbar-track-piece {
+  -webkit-appearance: none;
+          appearance: none;
+  width: 100%;
+  height: 7px;
+}
+table.currentDetails tr.hourlyData::-webkit-scrollbar-track {
+  background: #60abab;
+}
+table.currentDetails tr.hourlyData::-webkit-scrollbar-thumb {
+  -webkit-appearance: none;
+          appearance: none;
+  background-color: #386464;
+  width: 20px;
+}
+
+.dailyForecast {
+  display: flex;
+  flex-direction: column;
+  flex: 100% 0 0;
+}
+.dailyForecast ul {
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+  justify-content: space-between;
+  background-color: #a8dadc;
+  color: #044f71;
+  font-weight: 600;
+}
+.dailyForecast ul:nth-child(even) {
+  background-color: #bde0fe;
+}
+.dailyForecast ul li {
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+}
+.dailyForecast ul li.forecastText {
+  margin: auto;
+  width: "40%";
+  text-align: center;
+}
+
+@media screen and (max-width: 955px) {
+  .queryInput {
+    margin-bottom: 20px;
+  }
+}
+@media screen and (max-width: 765px) {
+  table.currentDetails {
+    max-width: 100%;
+    flex: 0 0 100%;
+  }
+  .inputForm {
+    overflow-y: hidden;
+    height: 60px;
+    flex-basis: 100%;
+    min-height: 0;
+  }
+  .inputForm #query {
+    flex: 0 0 60%;
+  }
+  .inputForm:hover {
+    height: 30vh;
+  }
+}
+@media screen and (max-width: 400px) {
+  .dailyForecast ul li.forecastText {
+    font-size: 0.9rem;
+  }
+}
+@media screen and (max-width: 380px) {
+  #query {
+    width: 70%;
+  }
+}/*# sourceMappingURL=App.css.map */

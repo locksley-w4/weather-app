@@ -1,0 +1,212 @@
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.App {
+  display: flex;
+  flex-wrap: wrap;
+}
+.currentField {
+  background-color: #60abab;
+  width: 100%;
+  height: 60vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: aliceblue;
+  padding: 10px;
+  padding-top: 25px;
+  h1 {
+    position: relative;
+    font-size: 4rem;
+  }
+  h2.location {
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: #eae8f6;
+    letter-spacing: 1.1px;
+    line-height: 0.5;
+  }
+  h3.lastUpdated {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+  }
+  h3.condition {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #eae8f6;
+    font-size: 1.2rem;
+  }
+}
+
+.inputForm {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  // flex-direction: column;
+  flex-wrap: wrap;
+  gap: 10px;
+  background-color: #bde0fe;
+  flex: 40% 1 1;
+  min-height: 45vh;
+  padding: 15px;
+  transition: 0.5s ease-out all;
+  h3 {
+    color: #044f71;
+    text-align: center;
+  }
+  .queryInput {
+    flex: 0 1 100%;
+    margin-left: auto;
+  }
+}
+table {
+  display: block;
+  tbody {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  tr {
+    padding: 5px;
+    display: flex;
+    td {
+      display: flex;
+      text-align: center;
+      justify-content: center;
+    }
+  }
+}
+table.currentDetails {
+  flex: 59.99% 0 0;
+  max-width: 60%;
+  tr {
+    background-color: #e4f3ff;
+    &:nth-child(odd) {
+      background-color: #a8dadc;
+    }
+    td {
+      flex: 50% 0 0;
+      color: #044f71;
+      font-weight: 500;
+    }
+
+    &.hourlyData {
+      flex: auto 1 1;
+      display: flex;
+      justify-content: space-between;
+      overflow-x: auto;
+      max-height: 150px;
+      gap: 5px;
+
+      td {
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        gap: 5px;
+        flex-direction: column;
+        font-size: 13px;
+        flex: 1 0 40px;
+        margin-right: 20px;
+        span.cond {
+          flex: 1 1 auto;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+
+      &::-webkit-scrollbar,
+      &::-webkit-scrollbar-track,
+      &::-webkit-scrollbar-button,
+      &::-webkit-scrollbar-track-piece {
+        appearance: none;
+        width: 100%;
+        height: 7px;
+      }
+      &::-webkit-scrollbar-track {
+        background: #60abab;
+      }
+      &::-webkit-scrollbar-thumb {
+        appearance: none;
+        background-color: #386464;
+        width: 20px;
+      }
+    }
+  }
+}
+.dailyForecast {
+  display: flex;
+  flex-direction: column;
+  flex: 100% 0 0;
+  ul {
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+    justify-content: space-between;
+    background-color: #a8dadc;
+    color: #044f71;
+    font-weight: 600;
+    &:nth-child(even) {
+      background-color: #bde0fe;
+    }
+    li {
+      display: flex;
+      justify-content: center;
+      padding: 5px;
+      &.forecastText {
+        margin: auto;
+        width: "40%";
+        text-align: center;
+      }
+    }
+    // .v-divider{
+    //   height: 60%;
+    //   width: 1px;
+    //   background-color: #1d6d92;
+    //   margin: 0 5px;
+    // }
+  }
+}
+@media screen and (max-width: 955px) {
+  .queryInput {
+    margin-bottom: 20px;
+  }
+}
+@media screen and (max-width: 765px) {
+  table.currentDetails {
+    max-width: 100%;
+    flex: 0 0 100%;
+  }
+  .inputForm {
+    overflow-y: hidden;
+    height: 60px;
+    flex-basis: 100%;
+    min-height: 0;
+    #query {
+      flex: 0 0 60%;
+    }
+    &:hover {
+      height: 30vh;
+    }
+  }
+}
+@media screen and (max-width: 400px) {
+  .dailyForecast ul li.forecastText {
+    font-size: .9rem;
+  }
+}
+@media screen and (max-width: 380px) {
+  #query {
+    width: 70%;
+    // font-size: 0.9rem;
+  }
+}
