@@ -1,13 +1,10 @@
 import React from "react";
 import MyIcon from "./UI/MyIcon/MyIcon";
+import HourlyData from "./HourlyData";
 
-const CurrentDetails = React.memo(({ weather, lang }) => {
+const CurrentDetails = React.memo(({ weather, lang, forecastMode, ...props }) => {
   const current = weather.current;
-  const forecast = weather.forecast;
-
-  const currentHour = current
-    ? current.last_updated?.split(" ")[1].slice(0, 2)
-    : "";
+  // const forecast = weather.forecast;
 
   const titles = {
     feelslike: {
@@ -40,47 +37,28 @@ const CurrentDetails = React.memo(({ weather, lang }) => {
     },
   };
 
-  let dataByHours = forecast
-    ? [...forecast?.forecastday[0].hour, ...forecast?.forecastday[1].hour]
-    : [];
-
-  const currentElemIndex = dataByHours.findIndex(
-    (elem) => elem.time.split(" ")[1].slice(0, 2) === currentHour
-  );
-  dataByHours = dataByHours.splice(currentElemIndex, 24);
-
-  const dataByHoursTDs = dataByHours.map((elem, index) => {
-    const time = elem.time.split(" ")[1];
-    return (
-      <td key={index} time={time}>
-        <span style={{ marginBottom: "10px" }}>{time}</span>
-        <MyIcon style={{ width: 40 }} url={elem.condition.icon} />
-        <span>{elem.temp_c}°C</span>
-        <span className="cond">{elem.condition.text}</span>
-      </td>
-    );
-  });
-
   return (
-    <table className="currentDetails">
+    <table className="currentDetails" {...props}>
       <tbody>
-        <tr className="hourlyData">{dataByHoursTDs}</tr>
+        {!forecastMode && <HourlyData weather={weather} />}
         <tr>
           <td>{titles.feelslike[lang || "ru"]}</td>
-          <td>{current?.feelslike_c}°C</td>
+          <td>{current?.feelslike_c ?? current?.avgtemp_c}°C</td>
         </tr>
         <tr>
           <td>{titles.precip[lang || "ru"]}</td>
-          <td>{current?.precip_mm}</td>
+          <td>{current?.precip_mm ?? current?.totalprecip_mm}</td>
         </tr>
         <tr>
           <td>{titles.humidity[lang || "ru"]}</td>
-          <td>{current?.humidity}</td>
+          <td>{current?.humidity ?? current?.avghumidity}</td>
         </tr>
-        <tr>
-          <td>{titles.clouds[lang || "ru"]}</td>
-          <td>{current?.cloud}</td>
-        </tr>
+        {!forecastMode && (
+          <tr>
+            <td>{titles.clouds[lang || "ru"]}</td>
+            <td>{current?.cloud}</td>
+          </tr>
+        )}
         <tr>
           <td>{titles.windspeed[lang || "ru"]}</td>
           <td>{current?.wind_mph} m/s</td>

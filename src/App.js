@@ -3,7 +3,7 @@ import "./App.css";
 import WeatherAPI from "./API/WeatherAPI.js";
 import Current from "./components/Current.jsx";
 import InputForm from "./components/InputForm.jsx";
-import CurrentDetails from "./components/CurrentDetails.jsx";
+import WeatherDetails from "./components/WeatherDetails.jsx";
 import DailyForecast from "./components/DailyForecast.jsx";
 
 function App() {
@@ -27,7 +27,7 @@ function App() {
     <div className="App">
       <Current weather={weather}  lang={params.lang}/>
       <InputForm params={params} setParams={setParams} updateFnc={fetchData}/>
-      <CurrentDetails weather={weather} lang={params.lang}/>
+      <WeatherDetails weather={weather} lang={params.lang}/>
       <DailyForecast weather={weather}/>
     </div>
   );

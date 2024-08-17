@@ -79,6 +79,7 @@ table tbody {
   flex-direction: column;
 }
 table tr {
+  width: 100%;
   padding: 5px;
   display: flex;
 }
@@ -190,7 +191,7 @@ table.currentDetails tr.hourlyData::-webkit-scrollbar-thumb {
   .inputForm #query {
     flex: 0 0 60%;
   }
-  .inputForm:hover {
+  .inputForm:hover, .inputForm:focus {
     height: 30vh;
   }
 }

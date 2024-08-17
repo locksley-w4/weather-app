@@ -76,6 +76,7 @@ table {
     flex-direction: column;
   }
   tr {
+    width: 100%;
     padding: 5px;
     display: flex;
     td {
@@ -194,7 +195,7 @@ table.currentDetails {
     #query {
       flex: 0 0 60%;
     }
-    &:hover {
+    &:hover, &:focus {
       height: 30vh;
     }
   }
